@@ -122,7 +122,7 @@ export class EcsCdkStack extends cdk.Stack {
       repo: githubRepository.valueAsString,
       webhook: true, // optional, default: true if `webhookfilteres` were provided, false otherwise
       webhookFilters: [
-        codebuild.FilterGroup.inEventOf(codebuild.EventAction.PUSH).andBranchIs('main'),
+        codebuild.FilterGroup.inEventOf(codebuild.EventAction.PUSH).andBranchIs('test'),
       ], // optional, by default all pushes and pull requests will trigger a build
     });
 
@@ -195,7 +195,7 @@ export class EcsCdkStack extends cdk.Stack {
       actionName: 'github_source',
       owner: githubUserName.valueAsString,
       repo: githubRepository.valueAsString,
-      branch: 'main',
+      branch: 'test',
       oauthToken: cdk.SecretValue.secretsManager(nameOfGithubPersonTokenParameterAsString),
       output: sourceOutput
     });
