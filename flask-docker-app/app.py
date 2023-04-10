@@ -1,6 +1,5 @@
 # from flask import Flask, escape, request, render_template
 import flask
-from flask import jsonify
 import datetime
 import platform
 import os
@@ -14,7 +13,7 @@ def hello():
     time = datetime.datetime.now()
     # python_version = platform.python_version()
     # aws_platform = os.environ.get('PLATFORM', 'Amazon Web Services')
-    return jsonify({"v1": time})
+    return {"v1": time}
 
 
 if __name__ == '__main__':
